@@ -1,0 +1,65 @@
+/* ==========================================================================
+   articles.css — Featured Posts / Twitter Embeds Section
+   Styles for: horizontal scrolling tweet container, subtitle
+   Last updated: —
+   ========================================================================== */
+
+/* Subtitle text under the section label */
+.articles-subtitle {
+  color: var(--text2);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  margin-top: -0.75rem;
+}
+
+/* Horizontal scroll container for tweet embeds */
+.tweets-scroll {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.5rem;
+
+  /* Hide scrollbar for a cleaner look */
+  scrollbar-width: thin;
+  scrollbar-color: var(--glass-border) transparent;
+}
+
+.tweets-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.tweets-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tweets-scroll::-webkit-scrollbar-thumb {
+  background: var(--glass-border);
+  border-radius: 4px;
+}
+
+/* Individual tweet embed container */
+.tweet-embed {
+  flex: 0 0 350px;
+  min-width: 300px;
+  max-width: 400px;
+  scroll-snap-align: start;
+}
+
+/* Ensure Twitter iframes respect our sizing */
+.tweet-embed .twitter-tweet,
+.tweet-embed .twitter-tweet-rendered,
+.tweet-embed iframe {
+  margin: 0 !important;
+  max-width: 100% !important;
+}
+
+/* ── Responsive: full width on mobile ── */
+@media (max-width: 480px) {
+  .tweet-embed {
+    flex: 0 0 85vw;
+    min-width: 260px;
+  }
+}

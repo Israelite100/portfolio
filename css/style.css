@@ -1,0 +1,264 @@
+/* ==========================================================================
+   style.css — Global Styles
+   Contains: CSS reset, custom properties (CSS variables), theme definitions,
+   global typography, body styles, transitions, glass card utility, 
+   scroll-to-top button, and responsive layout rules.
+   ========================================================================== */
+
+/* ── CSS Reset ── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* ── CSS Custom Properties (Design Tokens) ── */
+:root {
+  /* Brand colors */
+  --amber: #E5A00D;
+  --amber-glow: rgba(229, 160, 13, 0.15);
+  --amber-border: #C9922A;
+
+  /* Timing */
+  --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Typography */
+  --font: 'Space Grotesk', sans-serif;
+
+  /* Spacing & Layout */
+  --radius: 16px;
+  --nav-h: 56px;
+}
+
+/* ── Dark Theme (Default) ── */
+[data-theme="dark"] {
+  --bg: #0B1120;
+  --bg2: #111827;
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --text: #F1F5F9;
+  --text2: #94A3B8;
+  --glass: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+/* ── Light Theme ── */
+[data-theme="light"] {
+  --bg: #FAFAFA;
+  --bg2: #FFFFFF;
+  --card-bg: rgba(0, 0, 0, 0.02);
+  --card-border: rgba(0, 0, 0, 0.06);
+  --text: #1E293B;
+  --text2: #64748B;
+  --glass: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.08);
+}
+
+/* ── Global Body ── */
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  transition: background var(--transition), color var(--transition);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── Global Typography ── */
+h1 {
+  font-size: clamp(2.2rem, 6vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+/* Section label used across all sections */
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--amber);
+  margin-bottom: 1.5rem;
+}
+
+/* ── Main Content Container ── */
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: calc(var(--nav-h) + 2rem) 1.5rem 6rem;
+}
+
+section {
+  margin-bottom: 5rem;
+}
+
+/* ── Glass Card Utility ── 
+   Reusable glassmorphism card style applied via .glass class */
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: all var(--transition);
+}
+
+.glass:hover {
+  border-color: rgba(229, 160, 13, 0.25);
+  box-shadow: 0 0 30px var(--amber-glow);
+}
+
+/* ── Button Styles ── */
+.btn-primary {
+  background: var(--amber);
+  color: #0B1120;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 4px 20px rgba(229, 160, 13, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  border: 1px solid var(--glass-border);
+  color: var(--text);
+}
+
+.btn-secondary:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+/* ── Theme Toggle Button ── */
+.theme-btn {
+  background: none;
+  border: 1px solid var(--glass-border);
+  color: var(--text);
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+  font-size: 1rem;
+}
+
+.theme-btn:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+/* ── Badge Utility ── */
+.badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid var(--amber);
+  color: var(--amber);
+  opacity: 0.7;
+}
+
+/* ── Scroll-to-Top Button ── */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--amber);
+  color: #0B1120;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity var(--transition), visibility var(--transition), transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 4px 15px rgba(229, 160, 13, 0.3);
+}
+
+.scroll-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top-btn:hover {
+  box-shadow: 0 6px 25px rgba(229, 160, 13, 0.5);
+  transform: translateY(-2px);
+}
+
+/* ── Fade-Up Animation Utility ──
+   Used by animations.js — elements start invisible and slide up on scroll */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Responsive Breakpoints ── */
+@media (max-width: 768px) {
+  main {
+    padding-bottom: calc(var(--nav-h) + 3rem);
+  }
+
+  html {
+    scroll-padding-top: 64px;
+  }
+
+  /* Move scroll-to-top above the mobile bottom nav */
+  .scroll-top-btn {
+    bottom: calc(var(--nav-h) + 1rem);
+  }
+}

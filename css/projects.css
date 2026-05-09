@@ -1,0 +1,69 @@
+/* ==========================================================================
+   projects.css — Projects Section Styles
+   Styles for: projects grid, project cards, tech tags, links
+   Last updated: —
+   ========================================================================== */
+
+/* Vertical stack of project cards */
+.projects-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+/* Project card header row (name + badge side by side) */
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 0.5rem;
+}
+
+/* Project name */
+.project-card .project-name {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Project description */
+.project-card .project-desc {
+  color: var(--text2);
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Tech stack tag row */
+.project-tags {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+/* Individual tech tag pill */
+.project-tags span {
+  font-size: 0.7rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  background: var(--amber-glow);
+  color: var(--amber);
+  font-weight: 500;
+}
+
+/* GitHub / Live links row */
+.project-links {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.project-links a {
+  font-size: 0.8rem;
+  color: var(--text2);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.project-links a:hover {
+  color: var(--amber);
+}

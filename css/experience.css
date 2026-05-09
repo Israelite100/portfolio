@@ -1,0 +1,53 @@
+/* ==========================================================================
+   experience.css — Experience / What I Do Section Styles
+   Styles for: experience card grid, card icons, role title, description
+   Last updated: —
+   ========================================================================== */
+
+/* 2-column grid layout for experience cards */
+.exp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Icon container at top of each card */
+.exp-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--amber-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  color: var(--amber);
+  transition: all var(--transition);
+}
+
+.exp-card:hover .exp-icon {
+  background: var(--amber);
+  color: #0B1120;
+  transform: scale(1.05);
+}
+
+/* Role title inside experience card */
+.exp-card .exp-role {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Short description text */
+.exp-card .exp-desc {
+  color: var(--text2);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* Stack to single column on mobile */
+@media (max-width: 768px) {
+  .exp-grid {
+    grid-template-columns: 1fr;
+  }
+}

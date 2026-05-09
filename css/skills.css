@@ -1,0 +1,46 @@
+/* ==========================================================================
+   skills.css — Skills Section Styles
+   Styles for: skills grid, individual skill tags, placeholder card
+   Last updated: —
+   ========================================================================== */
+
+/* Grid layout for skill tags */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.75rem;
+}
+
+/* Individual skill tag card */
+.skill-tag {
+  text-align: center;
+  padding: 0.9rem 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* "Learning" sub-label inside Solidity tag */
+.skill-learning {
+  font-size: 0.65rem;
+  opacity: 0.7;
+  display: block;
+}
+
+/* Highlighted skill (e.g. Solidity currently being learned) */
+.skill-highlight {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+/* Dashed placeholder for future skills */
+.skill-placeholder {
+  border: 1px dashed var(--glass-border);
+  border-radius: var(--radius);
+  padding: 0.9rem;
+  text-align: center;
+  color: var(--text2);
+  font-size: 0.8rem;
+  opacity: 0.5;
+  grid-column: 1 / -1;
+  margin-top: 0.25rem;
+}

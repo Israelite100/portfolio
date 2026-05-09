@@ -1,0 +1,141 @@
+/* ==========================================================================
+   navbar.css — Navigation Styles
+   Styles for: desktop top navigation bar, mobile bottom navigation bar
+   Last updated: —
+   ========================================================================== */
+
+/* ── Desktop Top Navigation ── */
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(1.5rem, 5vw, 4rem);
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+  z-index: 100;
+  transition: background var(--transition);
+}
+
+/* Logo — links back to hero */
+.top-nav .logo {
+  display: flex;
+  align-items: center;
+}
+
+/* Circular profile image used as nav logo */
+.logo-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--amber-border);
+  object-fit: cover;
+  transition: box-shadow var(--transition);
+}
+
+.logo-avatar:hover {
+  box-shadow: 0 0 12px var(--amber-glow);
+}
+
+/* Fallback text logo if image fails */
+.logo-text {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--amber);
+  letter-spacing: -0.5px;
+}
+
+/* Navigation link row */
+.top-nav .nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* Individual nav links */
+.top-nav .nav-links a {
+  color: var(--text2);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: color var(--transition);
+  letter-spacing: 0.3px;
+}
+
+/* Hover and active state for desktop nav links */
+.top-nav .nav-links a:hover,
+.top-nav .nav-links a.active {
+  color: var(--amber);
+}
+
+/* ── Mobile Bottom Navigation ── */
+.bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-h);
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--glass-border);
+  z-index: 100;
+  justify-content: space-around;
+  align-items: center;
+  transition: background var(--transition);
+}
+
+/* Bottom nav link items */
+.bottom-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  text-decoration: none;
+  color: var(--text2);
+  font-size: 0.65rem;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+
+/* Bottom nav SVG icons */
+.bottom-nav a svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+}
+
+/* Hover and active state for mobile nav */
+.bottom-nav a:hover,
+.bottom-nav a.active {
+  color: var(--amber);
+}
+
+/* ── Responsive: show/hide navs ── */
+@media (max-width: 768px) {
+  /* Hide text nav links on mobile, keep theme toggle */
+  .top-nav .nav-links a:not(.theme-btn-wrap) {
+    display: none;
+  }
+
+  /* Show bottom nav on mobile */
+  .bottom-nav {
+    display: flex;
+  }
+}
+
+@media (min-width: 769px) {
+  /* Always hide bottom nav on desktop */
+  .bottom-nav {
+    display: none !important;
+  }
+}

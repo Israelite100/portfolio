@@ -1,0 +1,33 @@
+/* ==========================================================================
+   focus.css — Focus / What I'm Building Toward Section Styles
+   Styles for: focus grid layout, focus cards
+   Last updated: —
+   ========================================================================== */
+
+/* Two-column grid for focus cards */
+.focus-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Focus card heading */
+.focus-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+/* Focus card description */
+.focus-card p {
+  color: var(--text2);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* Stack to single column on mobile */
+@media (max-width: 768px) {
+  .focus-grid {
+    grid-template-columns: 1fr;
+  }
+}

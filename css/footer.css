@@ -1,0 +1,13 @@
+/* ==========================================================================
+   footer.css — Footer Styles
+   Styles for: site footer
+   Last updated: —
+   ========================================================================== */
+
+footer {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  color: var(--text2);
+  font-size: 0.75rem;
+  border-top: 1px solid var(--glass-border);
+}
